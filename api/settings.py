@@ -22,12 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['https://appl-conjugateverb.onrender.com']
+ALLOWED_HOSTS = ['appl-conjugateverb.onrender.com']
 #'192.168.1.253'
 
 #executar
 #python manage.py runserver 0.0.0.0:8000
 # Application definition
+
+SECRET_KEY = 'django-insecure-0o7aaf6yd7cx-7l+fg(92s&zt1*yry-33)(@bl6=b@&mz-kobl'
+
+DEBUG = True
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -119,6 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedMainifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
