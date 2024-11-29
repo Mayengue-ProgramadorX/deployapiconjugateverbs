@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['192.168.1.253']
+ALLOWED_HOSTS = ['https://appl-conjugateverb.onrender.com']
 #'192.168.1.253'
 
 #executar
