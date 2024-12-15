@@ -1,9 +1,13 @@
 from django.http import JsonResponse
-from .services import conjugate_random_verb_with_all_pronouns
-
+from .randomizer import get_random_verb_and_state
+from .services import conjugate_with_all_pronouns
 
 def get_conjugations(request):
-    data = conjugate_random_verb_with_all_pronouns()
+    verb, state = get_random_verb_and_state()
+    conjugations = conjugate_with_all_pronouns(verb, state)
+    data = {
+        "verb": verb["base"],
+        "state": state,
+        "conjugations": conjugations,
+    }
     return JsonResponse(data)
-
-
