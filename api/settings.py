@@ -31,7 +31,8 @@ ALLOWED_HOSTS = ['appl-conjugateverb.onrender.com']
 
 SECRET_KEY = 'django-insecure-0o7aaf6yd7cx-7l+fg(92s&zt1*yry-33)(@bl6=b@&mz-kobl'
 
-DEBUG = True
+DEBUG = False
+
 
 
 INSTALLED_APPS = [
