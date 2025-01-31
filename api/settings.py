@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['appl-conjugateverb.onrender.com']
+ALLOWED_HOSTS = ['appl-conjugateverb.onrender.com','127.0.0.1', 'localhost']
 #'192.168.1.253'
 
 #executar
@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'drf_yasg',
     'corsheaders',
     'verbsdraw',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +141,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://appl-conjugateverb.onrender.com",
+    "https://appl-conjugateverb.onrender.com",
 ]
+
+CORS_ALLOW_CREDENTIALS = True

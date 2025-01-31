@@ -21,11 +21,11 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    re_path(r'swagger(?P<format>\.json|\.yaml$)', schema_view.without_ui(cache_tomeout=0), name='schema-json'),
     path("conjugate/", get_conjugations, name="conjugate"),
     
     #route for documentation swagger ui and test or endpoints request(post,get etc..)
     path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name="schema-swagger-ui"),
-    
     #route for documentation redoc for
     path("redoc/", schema_view.with_ui('redoc', cache_timeout=0), name="schema-redoc"), 
 ]
